@@ -1,0 +1,26 @@
+DATOS:
+
+1. EuroParl_training*: ficheros de entrenamiento
+El fichero de entrenamiento esta repartido entre tres ficheros:
+training_funn.tgz.part.a
+training_funn.tgz.part.b
+training_funn.tgz.part.c
+
+Para conseguir el fichero de entrenamiento completo hay que hacer:
+
+cat EuroParl_training_full.tgz.part.* > training_full.tgz
+
+Descomprimir: EuroParl_test.tgz, training_full.tgz (Resultante del proceso anterior), training_full_voca.tgz y EuroParl_training_full_voca_freq.tgz
+
+2. EuroParl_test: fichero de prueba
+
+3. training_full_voca: fichero que contiene el vocabulario completo del conjunto de entrenamiento, ordenado de forma creciente por frecuencia de aparici�n
+
+4. training_full_voca_frec: fichero que contiene el vocabulario completo del conjunto de entrenamiento, ordenado de forma creciente por frecuencia de aparici�n, junto con su frecuencia.
+
+OBTENCI�N DE LOS FICHEROS DE VOCABULARIO:
+
+Obtenci�n de un fichero de vocabulario a partir de un fichero de dos columnas "palabra frecuencia", con una frecuencia superior a cierto valor.
+En el ejemplo para frecuencias >4
+
+cat entrada.txt |gawk '{if ($2>4) print $1;}' > VocabMajor4.txt
